@@ -1,4 +1,4 @@
-" encoding                                                                                                                                   [40/98]
+" encoding
 set encoding=utf8
 
 " highlight
