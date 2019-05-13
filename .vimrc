@@ -1,3 +1,6 @@
+set nocompatiable
+filetype plugin on
+
 " encoding
 set encoding=utf8
 
@@ -38,7 +41,7 @@ command W w !sudo tee % > /dev/null
 
 " status line
 set laststatus=2
-set statusline=%{StatuslineGit()}%{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=%{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " show current position
 set ruler
@@ -67,16 +70,6 @@ function! HasPaste()
         return 'PASTE MODE  '
     endif
     return ''
-endfunction
-
-" Git status function
-function! GitBranch()
-    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-    let l:branchname = GitBranch()
-    return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
 
