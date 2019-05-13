@@ -1,4 +1,4 @@
-set nocompatiable
+set nocompatible
 filetype plugin on
 
 " encoding
